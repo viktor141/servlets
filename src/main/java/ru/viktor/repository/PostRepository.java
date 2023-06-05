@@ -4,12 +4,14 @@ import ru.viktor.exception.NotFoundException;
 import ru.viktor.model.Post;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 // Stub
 public class PostRepository {
 
-  private long id = 0;
-  private final IdentityHashMap<Long, Post> postMap = new IdentityHashMap<>();
+  private final AtomicLong id = new AtomicLong(0);
+  private final ConcurrentHashMap<Long, Post> postMap = new ConcurrentHashMap<>();
 
 
   public List<Post> all() {
@@ -22,7 +24,7 @@ public class PostRepository {
 
   public Post save(Post post) {
     if(post.getId() == 0){
-      post.setId(++id);
+      post.setId(id.addAndGet(1));
       postMap.put(post.getId(), post);
       return post;
     }
