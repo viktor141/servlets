@@ -1,0 +1,32 @@
+package ru.viktor.service;
+
+import ru.viktor.exception.NotFoundException;
+import ru.viktor.model.Post;
+import ru.viktor.repository.PostRepository;
+
+import java.util.List;
+
+public class PostService {
+  private final PostRepository repository;
+
+  public PostService(PostRepository repository) {
+    this.repository = repository;
+  }
+
+  public List<Post> all() {
+    return repository.all();
+  }
+
+  public Post getById(long id) {
+    return repository.getById(id).orElseThrow(NotFoundException::new);
+  }
+
+  public Post save(Post post) {
+    return repository.save(post);
+  }
+
+  public void removeById(long id) {
+    repository.removeById(id);
+  }
+}
+
