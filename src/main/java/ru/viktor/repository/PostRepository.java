@@ -1,5 +1,6 @@
 package ru.viktor.repository;
 
+import org.springframework.stereotype.Repository;
 import ru.viktor.exception.NotFoundException;
 import ru.viktor.model.Post;
 
@@ -8,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 // Stub
+@Repository
 public class PostRepository {
 
   private final AtomicLong id = new AtomicLong(0);

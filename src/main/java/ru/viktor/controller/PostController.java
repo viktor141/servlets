@@ -1,6 +1,7 @@
 package ru.viktor.controller;
 
 import com.google.gson.Gson;
+import org.springframework.stereotype.Controller;
 import ru.viktor.exception.NotFoundException;
 import ru.viktor.model.Post;
 import ru.viktor.service.PostService;
@@ -11,6 +12,7 @@ import java.io.Reader;
 
 import static ru.viktor.servlet.MainServlet.APPLICATION_JSON;
 
+@Controller
 public class PostController {
 
   private final PostService service;
