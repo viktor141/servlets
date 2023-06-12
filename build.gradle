@@ -31,6 +31,7 @@ dependencies {
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     compileOnly 'com.heroku:webapp-runner:9.0.75.0'
+    implementation 'org.springframework:spring-context:5.2.9.RELEASE'
 }
 
 tasks.register('stage') {

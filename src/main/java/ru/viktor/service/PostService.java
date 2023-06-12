@@ -1,11 +1,13 @@
 package ru.viktor.service;
 
+import org.springframework.stereotype.Service;
 import ru.viktor.exception.NotFoundException;
 import ru.viktor.model.Post;
 import ru.viktor.repository.PostRepository;
 
 import java.util.List;
 
+@Service
 public class PostService {
   private final PostRepository repository;
 
